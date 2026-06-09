@@ -720,3 +720,75 @@
         pillsHtml += `
           <label class="pill-label">
             <input type="radio" name="day_pill" value="${titleLabel}" ${i===0?'checked':''} />
+            <span class="pill-btn">${titleLabel}<span>${dateString}</span></span>
+          </label>`;
+      }
+      if(calendarPillsContainer) calendarPillsContainer.innerHTML = pillsHtml;
+
+      function setFormContext(mode) {
+        if (mode === 'catering') {
+          f.setAttribute('data-context', 'catering');
+          document.getElementById('formTitle').textContent = "Inquire About Catering";
+          sb.textContent = "Submit Catering Request";
+        } else {
+          f.removeAttribute('data-context');
+          document.getElementById('formTitle').textContent = "Order ahead";
+          sb.textContent = "Place Pickup Order";
+        }
+      }
+
+      document.getElementById('caterTriggerBtn').onclick = () => { setFormContext('catering'); document.getElementById('order').scrollIntoView({ behavior: 'smooth' }); };
+      document.getElementById('radio-custom').onchange = () => setFormContext('catering');
+      document.getElementById('radio-pastry').onchange = () => setFormContext('retail');
+      document.getElementById('radio-bread').onchange = () => setFormContext('retail');
+
+      function validateInputNode(input) {
+        var wrapper = input.closest('[data-field]');
+        if (!wrapper || input.disabled || (input.offsetParent === null)) return true;
+        
+        var isValid = input.checkValidity() && input.value.trim() !== '';
+        wrapper.setAttribute('data-invalid', isValid ? 'false' : 'true');
+        input.setAttribute('aria-invalid', isValid ? 'false' : 'true');
+        return isValid;
+      }
+
+      f.querySelectorAll('[data-field] input').forEach(function(input) {
+        input.addEventListener('blur', function() { validateInputNode(input); });
+        input.addEventListener('input', function() { if(wrapper = input.closest('[data-field]')) wrapper.removeAttribute('data-invalid'); });
+      });
+
+      f.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var baselinePass = true;
+        var firstErrorNode = null;
+
+        f.querySelectorAll('[data-field] input').forEach(function(input) {
+          if (!validateInputNode(input)) {
+            baselinePass = false;
+            if (!firstErrorNode) firstErrorNode = input;
+          }
+        });
+
+        if (!baselinePass) {
+          s.textContent = 'Please update the highlighted options before continuing.';
+          s.removeAttribute('data-state');
+          if (firstErrorNode) firstErrorNode.focus();
+          return;
+        }
+
+        sb.disabled = true;
+        sb.textContent = 'Securing Allocation…';
+        
+        setTimeout(() => {
+          f.reset();
+          sb.disabled = false;
+          sb.textContent = f.getAttribute('data-context') === 'catering' ? 'Submit Catering Request' : 'Place Pickup Order';
+          s.setAttribute('data-state', 'ok');
+          s.textContent = 'Reservation locked. Check your device for confirmations.';
+          setTimeout(() => { s.textContent = ''; s.removeAttribute('data-state'); }, 6000);
+        }, 900);
+      });
+    })();
+  </script>
+</body>
+</html>

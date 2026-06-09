@@ -171,6 +171,8 @@
     .gallery{background:var(--cream)}
     .ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
     .ggrid .gimg{aspect-ratio:1/1;border-radius:var(--radius-sm);display:grid;place-items:center;color:#fbf2e6;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+    .ggrid .gimg img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1}
+    .ggrid .gimg span{position:relative;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,0.6)}
     .gimg.a{background:linear-gradient(135deg,#c0633a,#6b452c)}.gimg.b{background:linear-gradient(135deg,#dca73c,#8a5f1f)}.gimg.c{background:linear-gradient(135deg,#7d6552,#3a2418)}.gimg.d{background:linear-gradient(135deg,#d2734a,#94401f)}
     .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
     .qt{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem}.qt .stars{display:block;margin-bottom:.6rem} .qt blockquote{margin:0 0 1rem;font-size:1.05rem}
@@ -191,7 +193,7 @@
   img.ufill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;border:0}
   .ph,.ph2,.half,.photo,.gimg{position:relative;overflow:hidden}
   
-  /* FIXED: Inserted working Unsplash bakery imagery link */
+  /* FIXED: Inserted high quality online bakery imagery link */
   .hero{background-image:linear-gradient(180deg,rgba(11,13,18,.60),rgba(11,13,18,.74)),url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop')!important;background-size:cover!important;background-position:center!important}
   
   .brand .mark svg{width:22px;height:22px;display:block}
@@ -226,7 +228,7 @@
   <div class="inspection-overlay" id="inspectOverlay" role="dialog" aria-modal="true" aria-labelledby="inspectTitle">
     <div class="inspection-card">
       <button class="close-inspect" id="closeInspectBtn" aria-label="Close window">&times;</button>
-      <img class="inspect-hero-img" id="inspectImg" src="https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=400&h=300&fit=crop" alt="Pastry view profile" />
+      <img class="inspect-hero-img" id="inspectImg" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop" alt="Pastry view profile" />
       <div class="inspect-body">
         <span class="inspect-tag">In the Lab</span>
         <h2 class="inspect-pastry-title" id="inspectTitle">Pastry Name</h2>
@@ -319,7 +321,7 @@
               <div class="visual-grid" role="radiogroup" aria-labelledby="selectorLabel">
                 <label class="card-option">
                   <input type="radio" name="order_selection" value="pastry" id="radio-pastry" checked />
-                  <img class="card-img" src="https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=150&h=75&fit=crop" alt="">
+                  <img class="card-img" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=150&h=75&fit=crop" alt="Miso Croissant Box">
                   <div class="card-meta">
                     <span class="card-title">Miso Croissant Box</span>
                     <span class="card-price">$24.00</span>
@@ -328,7 +330,7 @@
                 </label>
                 <label class="card-option">
                   <input type="radio" name="order_selection" value="bread" id="radio-bread" />
-                  <img class="card-img" src="https://images.unsplash.com/photo-1176913888382-5724473b246a?w=150&h=75&fit=crop" alt="">
+                  <img class="card-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=150&h=75&fit=crop" alt="Fresh Sourdough Loaf">
                   <div class="card-meta">
                     <span class="card-title">Fresh Sourdough Loaf</span>
                     <span class="card-price">$9.00</span>
@@ -337,7 +339,7 @@
                 </label>
                 <label class="card-option sold-out">
                   <input type="radio" name="order_selection" value="coffee" disabled />
-                  <img class="card-img" src="https://images.unsplash.com/photo-11620146344904-097a0002d797?w=150&h=75&fit=crop" alt="">
+                  <img class="card-img" src="https://images.unsplash.com/photo-1620146344904-097a0002d797?w=150&h=75&fit=crop" alt="100-Layer Morning Bun">
                   <div class="card-meta">
                     <span class="card-title">100-Layer Morning Bun</span>
                     <span class="card-price">$8.00</span>
@@ -346,7 +348,7 @@
                 </label>
                 <label class="card-option" id="customCardOption">
                   <input type="radio" name="order_selection" value="custom" id="radio-custom" />
-                  <img class="card-img" src="https://images.unsplash.com/photo-1176913888359-fbfae1967b67?w=150&h=75&fit=crop" alt="">
+                  <img class="card-img" src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?w=150&h=75&fit=crop" alt="Custom Tasting Set">
                   <div class="card-meta">
                     <span class="card-title">Custom Laboratory Set</span>
                     <span class="card-price">Quote</span>
@@ -426,9 +428,9 @@
       <div class="wrap">
         <div class="sec-head"><p class="eyebrow">Why Wildflour</p><h2 id="why-title">Made the slow way.</h2></div>
         <div class="grid3">
-          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1174917256230-f90459068975?w=600&h=380&fit=crop" alt="" loading="lazy"><div class="ico" aria-hidden="true">🌾</div><h3>Milled-fresh flour</h3><p>We stone-mill grain in-house for breads with more flavor and better nutrition.</p></div>
-          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-11769138886139-b6aa68782f53?w=600&h=380&fit=crop" alt="" loading="lazy"><div class="ico" aria-hidden="true">⏳</div><h3>Long, cold ferments</h3><p>Our doughs rest 24–36 hours, so everything is easier to digest and tastes richer.</p></div>
-          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1176913888284-34d3d68f4ba5?w=600&h=380&fit=crop" alt="" loading="lazy"><div class="ico" aria-hidden="true">🤝</div><h3>Local everything</h3><p>Local roaster, local dairy, local eggs. We know the people who grow our food.</p></div>
+          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=380&fit=crop" alt="Fresh artisan flour milling" loading="lazy"><div class="ico" aria-hidden="true">🌾</div><h3>Milled-fresh flour</h3><p>We stone-mill grain in-house for breads with more flavor and better nutrition.</p></div>
+          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&h=380&fit=crop" alt="Long cold fermentation process" loading="lazy"><div class="ico" aria-hidden="true">⏳</div><h3>Long, cold ferments</h3><p>Our doughs rest 24–36 hours, so everything is easier to digest and tastes richer.</p></div>
+          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1563865436874-9aef32095ffd?w=600&h=380&fit=crop" alt="Local farm source fresh ingredients" loading="lazy"><div class="ico" aria-hidden="true">🤝</div><h3>Local everything</h3><p>Local roaster, local dairy, local eggs. We know the people who grow our food.</p></div>
         </div>
       </div>
     </section>
@@ -450,6 +452,30 @@
           <div class="qt"><span class="stars" aria-hidden="true">★★★★★</span><blockquote>&ldquo;The croissants are the best I&rsquo;ve had outside Paris. Ordering ahead means I&rsquo;m in and out in two minutes.&rdquo;</blockquote><div class="who"><span class="avatar" aria-hidden="true">LC</span><span><span class="nm">Lily C.</span><span class="loc">West Asheville</span></span></div></div>
           <div class="qt"><span class="stars" aria-hidden="true">★★★★★</span><blockquote>&ldquo;Their sourdough has ruined grocery-store bread for me forever. The staff knows my order by heart.&rdquo;</blockquote><div class="who"><span class="avatar" aria-hidden="true">DM</span><span><span class="nm">Diego M.</span><span class="loc">Asheville, NC</span></span></div></div>
           <div class="qt"><span class="stars" aria-hidden="true">★★★★★</span><blockquote>&ldquo;Catered our office brunch and everyone raved. The custom birthday cake was gorgeous and delicious.&rdquo;</blockquote><div class="who"><span class="avatar" aria-hidden="true">AK</span><span><span class="nm">Anna K.</span><span class="loc">Montford, Asheville</span></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="wrap">
+        <div class="sec-head"><p class="eyebrow">Bakehouse Showcase</p><h2 id="gallery-title">Fresh from our ovens</h2></div>
+        <div class="ggrid">
+          <div class="gimg a">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=400&fit=crop" alt="Flaky golden croissants">
+            <span>Croissants</span>
+          </div>
+          <div class="gimg b">
+            <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=400&fit=crop" alt="Rustic signature sourdough breads">
+            <span>Sourdough</span>
+          </div>
+          <div class="gimg c">
+            <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?w=400&h=400&fit=crop" alt="Fresh morning buns sweetened with sugar">
+            <span>Sweet Buns</span>
+          </div>
+          <div class="gimg d">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop" alt="Artisan pastries collection display">
+            <span>Daily Specials</span>
+          </div>
         </div>
       </div>
     </section>
@@ -485,7 +511,7 @@
         id: 'pastry',
         title: 'Miso Croissant Box',
         desc: 'A profound 36-hour wild-ferment pastry with organic dark miso paste ribboned throughout the European butter block layers.',
-        img: 'https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=400&h=300&fit=crop',
+        img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop',
         layers: [
           { name: 'Layer 1: Laminated Crust', detail: 'Flaky crust featuring crisp honeyed outer ridges dusted with black sea salt shards.' },
           { name: 'Layer 2: Miso Lamination Matrix', detail: 'Umami-rich aeration pockets packed with sweet white and dark savory miso structures.' },
@@ -507,7 +533,7 @@
         id: 'custom',
         title: 'Custom Laboratory Set',
         desc: 'A tailored tasting sequence configured under master confectioner specifications for high-profile gatherings.',
-        img: 'https://images.unsplash.com/photo-1176913888359-fbfae1967b67?w=400&h=300&fit=crop',
+        img: 'https://images.unsplash.com/photo-1517433456452-f9633a875f6f?w=400&h=300&fit=crop',
         layers: [
           { name: 'Layer 1: Confection Matrix', detail: 'Exotic fruit reduction compounds layered with structural biscuit steps.' },
           { name: 'Layer 2: Velvet Emulsion', detail: 'Ultra-creamy botanical mousse designed to dissipate evenly at skin temperature.' },

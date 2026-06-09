@@ -27,7 +27,7 @@
     .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(1rem,4vw,2rem)}
     section{padding-block:clamp(3rem,7vw,5.5rem)}
     .eyebrow{font-family:var(--font-body);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-600);margin:0 0 .8rem}
-    .lead{font-size:1.14rem;color:var(--mut);max-width:60ch}
+    .lead{font-size:1.14rem;color:var(--mut);max-width:62ch}
     a,button,input,select,textarea,summary{touch-action:manipulation}
     :focus-visible{outline:3px solid var(--terra-500);outline-offset:2px;border-radius:5px}
     .skip{position:absolute;left:1rem;top:-3rem;z-index:2200;background:var(--brown-900);color:#fff;padding:.6rem 1rem;border-radius:8px;font-weight:700;transition:top .15s}.skip:focus{top:1rem}
@@ -52,7 +52,7 @@
     .badges{display:flex;flex-wrap:wrap;gap:.8rem 1.6rem;margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.18);font-size:.92rem;color:#e6d4bf}
     .badges .it{display:flex;align-items:center;gap:.5rem}.badges strong{color:#fff}.stars{color:var(--mustard)}
     
-    /* Scarcity Mechanics & Marquee */
+    /* Tartine Bakery Scarcity Mechanics & Marquee */
     .live-ticker-banner { background:var(--mustard); color:var(--brown-900); font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; text-align:center; overflow:hidden; white-space:nowrap; position:relative; z-index:110; border-bottom:1px solid rgba(0,0,0,0.1); }
     .ticker-wrap { display:inline-block; animation:marquee 25s linear infinite; }
     @keyframes marquee { 0% { transform:translate3d(0, 0, 0); } 100% { transform:translate3d(-50%, 0, 0); } }
@@ -76,7 +76,7 @@
     .card-option { position:relative; border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; background:#fff; display:flex; flex-direction:column; transition:all 0.15s ease; }
     .card-option:hover:not(.sold-out) { border-color:var(--terra-500); }
     .card-option input[type="radio"] { position:absolute; top:8px; left:8px; margin:0; z-index:3; accent-color:var(--terra-600); width:18px; height:18px; }
-    .card-img { width:100%; height:85px; object-fit:cover; background:#eedec5; border-bottom:1px solid var(--line); transition:filter 0.15s; }
+    .card-img { width:100%; height:75px; object-fit:cover; background:#eedec5; border-bottom:1px solid var(--line); transition:filter 0.15s; }
     .card-meta { padding:0.5rem; display:flex; flex-direction:column; gap:0.15rem; font-size:0.8rem; position:relative; z-index:2; }
     .card-title { font-weight:600; color:var(--ink); line-height:1.2; padding-left:18px; text-indent:-18px; }
     .card-price { color:var(--terra-600); font-weight:700; font-size:0.85rem; margin-top:auto; }
@@ -86,7 +86,7 @@
     .scarcity-ticker.low { color:var(--danger); background:rgba(179,64,47,0.1); }
     .scarcity-ticker.fresh { color:var(--success); background:rgba(63,125,82,0.1); }
     
-    /* Sold Out UI Guard */
+    /* Tartine Style Sold Out UI Guard */
     .card-option.sold-out { opacity:0.5; cursor:not-allowed; background:var(--cream); }
     .card-option.sold-out .card-title { text-decoration:line-through; color:var(--mut); }
     .card-option.sold-out .card-img { filter:grayscale(1); }
@@ -103,7 +103,7 @@
     .pill-label input[type="radio"]:checked + .pill-btn { background:var(--brown-900); color:#fff; border-color:var(--brown-900); }
     .pill-label input[type="radio"]:checked + .pill-btn span { color:rgba(255,255,255,0.7); }
 
-    /* Live Batch Freshness Tracker */
+    /* Live Batch Freshness Tracker Blueprint */
     .freshness-tracker { background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:0.75rem; margin-bottom:1rem; }
     .fresh-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; }
     .fresh-bar { height:6px; background:var(--line); border-radius:3px; position:relative; overflow:hidden; }
@@ -118,7 +118,7 @@
     .upgrade-check input { accent-color:var(--terra-600); width:16px; height:16px; margin:0; }
     .upgrade-price { font-weight:700; color:var(--terra-600); }
 
-    /* Floating Interactive Workshop Module */
+    /* Dominique Ansel Floating Interactive Workshop Module */
     .floating-workshop-dock { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:rgba(58, 36, 24, 0.96); backdrop-filter:blur(12px); border-radius:30px; padding:10px 24px; display:flex; align-items:center; gap:20px; box-shadow:0 20px 50px rgba(0,0,0,0.3); z-index:2000; border:1px solid rgba(233,221,202,0.15); width:calc(100% - 40px); max-width:680px; justify-content:space-between; transition:all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .dock-title { color:var(--mustard); font-family:var(--font-display); font-size:1rem; white-space:nowrap; }
     .dock-items-cluster { display:flex; gap:12px; overflow-x:auto; scrollbar-width:none; padding-block:4px; }
@@ -170,7 +170,7 @@
     .cater{background:linear-gradient(150deg,var(--terra-600),#94401f);color:#fff}.cater .wrap{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center}.cater p{margin:0;color:#ffe7da}.cater h2{color:#fff;margin:0 0 .2em}
     .gallery{background:var(--cream)}
     .ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
-    .gimg{aspect-ratio:1/1;border-radius:var(--radius-sm);display:grid;place-items:center;color:#fbf2e6;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+    .ggrid .gimg{aspect-ratio:1/1;border-radius:var(--radius-sm);display:grid;place-items:center;color:#fbf2e6;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
     .gimg.a{background:linear-gradient(135deg,#c0633a,#6b452c)}.gimg.b{background:linear-gradient(135deg,#dca73c,#8a5f1f)}.gimg.c{background:linear-gradient(135deg,#7d6552,#3a2418)}.gimg.d{background:linear-gradient(135deg,#d2734a,#94401f)}
     .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
     .qt{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem}.qt .stars{display:block;margin-bottom:.6rem} .qt blockquote{margin:0 0 1rem;font-size:1.05rem}
@@ -190,8 +190,7 @@
 <style>
   img.ufill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;border:0}
   .ph,.ph2,.half,.photo,.gimg{position:relative;overflow:hidden}
-  /* Beautiful updated bakery background */
-  .hero{background-image:linear-gradient(180deg,rgba(11,13,18,.50),rgba(11,13,18,.70)),url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600&h=900&fit=crop&q=80&auto=format')!important;background-size:cover!important;background-position:center!important}
+  .hero{background-image:linear-gradient(180deg,rgba(11,13,18,.60),rgba(11,13,18,.74)),url('https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=1600&h=900&fit=crop&q=80&auto=format')!important;background-size:cover!important;background-position:center!important}
   .brand .mark svg{width:22px;height:22px;display:block}
   .svc{padding:0!important;overflow:hidden;display:flex;flex-direction:column}
   .svc>img.scard{width:100%;height:158px;object-fit:cover;display:block;border:0}
@@ -199,50 +198,6 @@
   .svc>h3{margin:.5rem 1.5rem .3rem}
   .svc>p{margin:0 1.5rem 1.5rem}
   .hero h1,.hero .lead,.hero .eyebrow{text-shadow:0 2px 14px rgba(0,0,0,.45)}
-  
-  /* Styled Layout Isolation for the Widget */
-  .floating-wa-container {
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 99999; 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  }
-  .floating-wa-btn {
-    background-color: #25D366; 
-    color: white; 
-    border: none; 
-    width: 60px; 
-    height: 60px; 
-    border-radius: 50%; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25); 
-    cursor: pointer; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    transition: transform 0.2s ease; 
-    outline: none;
-  }
-  .floating-wa-btn:hover {
-    transform: scale(1.08);
-  }
-  .floating-wa-btn svg {
-    width: 32px; 
-    height: 32px; 
-    fill: white;
-  }
-  .wa-chat-card {
-    display: none; 
-    position: absolute; 
-    bottom: 75px; 
-    right: 0; 
-    width: 320px; 
-    background: white; 
-    border-radius: 12px; 
-    box-shadow: 0 5px 25px rgba(0,0,0,0.15); 
-    overflow: hidden; 
-    text-align: left;
-  }
 </style>
 </head>
 <body>
@@ -260,7 +215,7 @@
   <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
 
   <div class="floating-workshop-dock" id="workshopDock">
-    <div class="dock-title">✨ Artisan Vault</div>
+    <div class="dock-title">✨ Workshop Vault</div>
     <div class="dock-items-cluster" id="dockCluster"></div>
     <button class="btn btn-terra" style="padding:0.5rem 1rem; font-size:0.8rem;" id="dockReserveBtn">Reserve Selected</button>
   </div>
@@ -268,9 +223,9 @@
   <div class="inspection-overlay" id="inspectOverlay" role="dialog" aria-modal="true" aria-labelledby="inspectTitle">
     <div class="inspection-card">
       <button class="close-inspect" id="closeInspectBtn" aria-label="Close window">&times;</button>
-      <img class="inspect-hero-img" id="inspectImg" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop" alt="Pastry view profile" />
+      <img class="inspect-hero-img" id="inspectImg" src="https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=400&h=300&fit=crop" alt="Pastry view profile" />
       <div class="inspect-body">
-        <span class="inspect-tag">Bakehouse Profile</span>
+        <span class="inspect-tag">In the Lab</span>
         <h2 class="inspect-pastry-title" id="inspectTitle">Pastry Name</h2>
         <p class="inspect-desc" id="inspectDesc">Detailed textural profile description placeholder.</p>
         
@@ -361,16 +316,16 @@
               <div class="visual-grid" role="radiogroup" aria-labelledby="selectorLabel">
                 <label class="card-option">
                   <input type="radio" name="order_selection" value="pastry" id="radio-pastry" checked />
-                  <img class="card-img" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=250&h=120&fit=crop&q=80" alt="Croissants">
+                  <img class="card-img" src="https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=150&h=75&fit=crop" alt="">
                   <div class="card-meta">
-                    <span class="card-title">Artisan Croissant Box</span>
+                    <span class="card-title">Miso Croissant Box</span>
                     <span class="card-price">$24.00</span>
                     <span class="scarcity-ticker low">Only 3 boxes left</span>
                   </div>
                 </label>
                 <label class="card-option">
                   <input type="radio" name="order_selection" value="bread" id="radio-bread" />
-                  <img class="card-img" src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=250&h=120&fit=crop&q=80" alt="Sourdough loaf">
+                  <img class="card-img" src="https://images.unsplash.com/photo-1176913888382-5724473b246a?w=150&h=75&fit=crop" alt="">
                   <div class="card-meta">
                     <span class="card-title">Fresh Sourdough Loaf</span>
                     <span class="card-price">$9.00</span>
@@ -379,7 +334,7 @@
                 </label>
                 <label class="card-option sold-out">
                   <input type="radio" name="order_selection" value="coffee" disabled />
-                  <img class="card-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=250&h=120&fit=crop&q=80" alt="Morning buns">
+                  <img class="card-img" src="https://images.unsplash.com/photo-11620146344904-097a0002d797?w=150&h=75&fit=crop" alt="">
                   <div class="card-meta">
                     <span class="card-title">100-Layer Morning Bun</span>
                     <span class="card-price">$8.00</span>
@@ -388,9 +343,9 @@
                 </label>
                 <label class="card-option" id="customCardOption">
                   <input type="radio" name="order_selection" value="custom" id="radio-custom" />
-                  <img class="card-img" src="https://images.unsplash.com/photo-1535141192574-5d4897c13636?w=250&h=120&fit=crop&q=80" alt="Catering platter">
+                  <img class="card-img" src="https://images.unsplash.com/photo-1176913888359-fbfae1967b67?w=150&h=75&fit=crop" alt="">
                   <div class="card-meta">
-                    <span class="card-title">Custom Catering Set</span>
+                    <span class="card-title">Custom Laboratory Set</span>
                     <span class="card-price">Quote</span>
                     <span class="scarcity-ticker fresh" style="color:var(--mustard); background:rgba(220,167,60,0.1)">48h Lead</span>
                   </div>
@@ -468,9 +423,9 @@
       <div class="wrap">
         <div class="sec-head"><p class="eyebrow">Why Wildflour</p><h2 id="why-title">Made the slow way.</h2></div>
         <div class="grid3">
-          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=600&h=380&fit=crop&q=80" alt="Milled flour" loading="lazy"><div class="ico" aria-hidden="true">🌾</div><h3>Milled-fresh flour</h3><p>We stone-mill grain in-house for breads with more flavor and better nutrition.</p></div>
-          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1585478259715-876acc5be8eb?w=600&h=380&fit=crop&q=80" alt="Fermentation dough" loading="lazy"><div class="ico" aria-hidden="true">⏳</div><h3>Long, cold ferments</h3><p>Our doughs rest 24–36 hours, so everything is easier to digest and tastes richer.</p></div>
-          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=380&fit=crop&q=80" alt="Local coffee shop" loading="lazy"><div class="ico" aria-hidden="true">🤝</div><h3>Local everything</h3><p>Local roaster, local dairy, local eggs. We know the people who grow our food.</p></div>
+          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1174917256230-f90459068975?w=600&h=380&fit=crop" alt="" loading="lazy"><div class="ico" aria-hidden="true">🌾</div><h3>Milled-fresh flour</h3><p>We stone-mill grain in-house for breads with more flavor and better nutrition.</p></div>
+          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-11769138886139-b6aa68782f53?w=600&h=380&fit=crop" alt="" loading="lazy"><div class="ico" aria-hidden="true">⏳</div><h3>Long, cold ferments</h3><p>Our doughs rest 24–36 hours, so everything is easier to digest and tastes richer.</p></div>
+          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1176913888284-34d3d68f4ba5?w=600&h=380&fit=crop" alt="" loading="lazy"><div class="ico" aria-hidden="true">🤝</div><h3>Local everything</h3><p>Local roaster, local dairy, local eggs. We know the people who grow our food.</p></div>
         </div>
       </div>
     </section>
@@ -520,48 +475,25 @@
     </div>
   </footer>
 
-  <div class="floating-wa-container" id="whatsappWidget">
-      <button onclick="toggleWhatsAppCard()" class="floating-wa-btn" aria-label="Open Chat Window">
-          <svg viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.948 0c3.179.001 6.165 1.24 8.413 3.488 2.248 2.248 3.484 5.236 3.484 8.414 0 6.597-5.336 11.948-11.888 11.948-2.006-.001-3.98-.51-5.731-1.484L0 24zm6.59-4.846c1.657.983 3.284 1.514 5.302 1.515 5.517 0 10.007-4.49 10.007-10.007 0-2.673-1.042-5.186-2.935-7.078C17.13 1.69 14.613.65 11.941.65c-5.522 0-10.014 4.491-10.014 10.011 0 2.106.56 4.156 1.625 5.997L2.18 21.84l5.313-1.393z" />
-          </svg>
-      </button>
-
-      <div id="waChatCard" class="wa-chat-card">
-          <div style="background-color: #3a2418; color: white; padding: 16px;">
-              <div style="font-weight: bold; font-size: 16px;">🥐 Wildflour Support</div>
-              <div style="font-size: 12px; opacity: 0.85; margin-top: 4px;">Fresh Orders &amp; Custom Catering Help</div>
-          </div>
-          <div style="padding: 20px; color: #4a5568; font-size: 14px; line-height: 1.5; background-color: #f7fafc;">
-              Hello! Need help customizing a pastry box, planning an event, or inquiring about today's fresh bread batches? Chat directly with us on WhatsApp.
-          </div>
-          <div style="padding: 0 20px 20px 20px; background-color: #f7fafc;">
-              <a href="https://wa.me/919342797296?text=Hi%20Wildflour!%20I%27m%20interested%20in%20ordering%20fresh%20pastries%20and%20catering." target="_blank" style="background-color: #25D366; color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                  Start Chat Window
-              </a>
-          </div>
-      </div>
-  </div>
-
   <script>
     // System Data & Architecture Initialization
     const VAULT_DATA = [
       {
         id: 'pastry',
-        title: 'Artisan Croissant Box',
-        desc: 'A profound 36-hour wild-ferment pastry with organic cream ribboned throughout the European butter block layers.',
-        img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&h=300&fit=crop&q=80',
+        title: 'Miso Croissant Box',
+        desc: 'A profound 36-hour wild-ferment pastry with organic dark miso paste ribboned throughout the European butter block layers.',
+        img: 'https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=400&h=300&fit=crop',
         layers: [
-          { name: 'Layer 1: Laminated Crust', detail: 'Flaky crust featuring crisp golden outer ridges dusted lightly with sweet cane structures.' },
-          { name: 'Layer 2: Butter Lamination Matrix', detail: 'Perfectly uniform honeycomb aeration pockets packed with authentic European butter.' },
-          { name: 'Layer 3: Soft Core Crumb', detail: 'Pillowy, melt-in-your-mouth center that holds delicate steam condensation.' }
+          { name: 'Layer 1: Laminated Crust', detail: 'Flaky crust featuring crisp honeyed outer ridges dusted with black sea salt shards.' },
+          { name: 'Layer 2: Miso Lamination Matrix', detail: 'Umami-rich aeration pockets packed with sweet white and dark savory miso structures.' },
+          { name: 'Layer 3: Soft Core Crumb', detail: 'Pillowy, custard-like center that holds pockets of deep steam condensation.' }
         ]
       },
       {
         id: 'bread',
         title: 'Fresh Sourdough Loaf',
-        desc: 'Our high-hydration house flagship loaf made of organic grain varietals stone-milled under precise temperature monitors.',
-        img: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop&q=80',
+        desc: 'Our high-hydration house flagship loaf made of ancient grain varietals stone-milled under strict temperature monitors.',
+        img: 'https://images.unsplash.com/photo-1176913888382-5724473b246a?w=400&h=300&fit=crop',
         layers: [
           { name: 'Layer 1: Blistered Crust', detail: 'Thick caramelized exterior displaying aggressive blistering from intense stone-fired wood ovens.' },
           { name: 'Layer 2: Wild Sourdough Webbing', detail: 'Irregular open crumb lattice showing deep acetic and lactic acid fermentation pathways.' },
@@ -570,13 +502,13 @@
       },
       {
         id: 'custom',
-        title: 'Custom Catering Set',
-        desc: 'A tailored tasting sequence configured under custom bakery options for your high-profile gatherings or family mornings.',
-        img: 'https://images.unsplash.com/photo-1535141192574-5d4897c13636?w=400&h=300&fit=crop&q=80',
+        title: 'Custom Laboratory Set',
+        desc: 'A tailored tasting sequence configured under master confectioner specifications for high-profile gatherings.',
+        img: 'https://images.unsplash.com/photo-1176913888359-fbfae1967b67?w=400&h=300&fit=crop',
         layers: [
-          { name: 'Layer 1: Confection Layout', detail: 'Premium pastries reduction options arranged over elegant presentation layouts.' },
-          { name: 'Layer 2: Flavor Coordination', detail: 'Sweet, savory, and aromatic flavor pairings matched precisely to morning requests.' },
-          { name: 'Layer 3: Secure Delivery Base', detail: 'Sturdy, eco-friendly insulated boxes maintaining crumb structure and heat perfect integrity.' }
+          { name: 'Layer 1: Confection Matrix', detail: 'Exotic fruit reduction compounds layered with structural biscuit steps.' },
+          { name: 'Layer 2: Velvet Emulsion', detail: 'Ultra-creamy botanical mousse designed to dissipate evenly at skin temperature.' },
+          { name: 'Layer 3: Monogram Base', detail: 'A dense almond pastry sable cookie layer holding structural integrity together.' }
         ]
       }
     ];
@@ -659,12 +591,14 @@
     const closeModal = () => overlay.classList.remove('open');
     document.getElementById('closeInspectBtn').onclick = closeModal;
     
+    // Accessibility: Close modal on Esc keypress
     window.addEventListener('keydown', function(e) {
       if(e.key === 'Escape' && overlay.classList.contains('open')) {
         closeModal();
       }
     });
     
+    // Wire modal selection back into form
     document.getElementById('modalSelectBtn').onclick = function() {
       const activePastry = VAULT_DATA[currentSelectedPastryIndex];
       const targetRadio = document.getElementById(`radio-${activePastry.id}`);
@@ -709,13 +643,14 @@
     setTimeout(spawnNotificationToast, 3000);
     setInterval(spawnNotificationToast, 15000);
 
-    // HTML5 Real-Time Form Validation Engine
+    // HTML5 Real-Time Form Validation Engine (Restored from index5)
     (function initValidationSuite(){
       var f = document.getElementById('bookForm');
       if(!f) return;
       var s = document.getElementById('formStatus'), sb = document.getElementById('submitBtn');
       var calendarPillsContainer = document.getElementById('calendarPills');
 
+      // Generate Interactive Pills Dynamic Architecture
       const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       let pillsHtml = '';
       for (let i = 0; i < 4; i++) {
@@ -748,6 +683,7 @@
       document.getElementById('radio-pastry').onchange = () => setFormContext('retail');
       document.getElementById('radio-bread').onchange = () => setFormContext('retail');
 
+      // Restored Validation Utility Loops
       function validateInputNode(input) {
         var wrapper = input.closest('[data-field]');
         if (!wrapper || input.disabled || (input.offsetParent === null)) return true;
@@ -795,16 +731,6 @@
         }, 900);
       });
     })();
-
-    // WhatsApp Window Toggle Logic Routine
-    function toggleWhatsAppCard() {
-        var card = document.getElementById("waChatCard");
-        if (card.style.display === "block") {
-            card.style.display = "none";
-        } else {
-            card.style.display = "block";
-        }
-    }
   </script>
 </body>
 </html>

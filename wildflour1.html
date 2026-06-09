@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Wildflour Bakery &amp; Café — Coffee, Pastries &amp; Catering in Asheville</title>
+  <meta name="description" content="A neighborhood bakery and café in Asheville for slow-roasted coffee, fresh-baked pastries, and from-scratch breads. Order ahead for pickup, browse the menu, and book catering." />
+  <meta name="theme-color" content="#f8f1e7" />
+  <meta name="color-scheme" content="light" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:wght@400;500;600;700&display=swap" />
+  <style>
+    :root{
+      --cream:#f8f1e7;--paper:#fffdf9;--brown-900:#3a2418;--brown-800:#4d3120;--brown-700:#6b452c;
+      --terra-600:#c0633a;--terra-500:#d2734a;--mustard:#dca73c;--ink:#3a2418;--mut:#7d6552;--line:#e9ddca;
+      --success:#3f7d52;--danger:#b3402f;
+      --radius:16px;--radius-sm:10px;--shadow-md:0 18px 46px rgba(58,36,24,.14);--maxw:1140px;
+      --font-display:"Caprasimo",Georgia,serif;--font-body:"Inter",system-ui,sans-serif;
+    }
+    *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+    body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(192,99,58,.2);padding-bottom:120px;}
+    h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.05;text-wrap:balance;margin:0 0 .4em}
+    h1{font-size:clamp(2.8rem,7.5vw,5.4rem)}h2{font-size:clamp(2rem,4.6vw,3.2rem)}h3{font-size:1.3rem}
+    p{margin:0 0 1rem;text-wrap:pretty}a{color:var(--terra-600)}
+    .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(1rem,4vw,2rem)}
+    section{padding-block:clamp(3rem,7vw,5.5rem)}
+    .eyebrow{font-family:var(--font-body);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-600);margin:0 0 .8rem}
+    .lead{font-size:1.14rem;color:var(--mut);max-width:60ch}
+    a,button,input,select,textarea,summary{touch-action:manipulation}
+    :focus-visible{outline:3px solid var(--terra-500);outline-offset:2px;border-radius:5px}
+    .skip{position:absolute;left:1rem;top:-3rem;z-index:2200;background:var(--brown-900);color:#fff;padding:.6rem 1rem;border-radius:8px;font-weight:700;transition:top .15s}.skip:focus{top:1rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;justify-content:center;font-weight:600;font-size:1rem;padding:.85rem 1.7rem;border-radius:999px;border:1px solid transparent;cursor:pointer;text-decoration:none;line-height:1;transition:transform .15s,background-color .15s,color .15s}
+    .btn:active{transform:translateY(1px)}
+    .btn-terra{background:var(--terra-600);color:#fff}.btn-terra:hover{background:var(--terra-500)}
+    .btn-outline{background:transparent;color:var(--ink);border-color:var(--line)}.btn-outline:hover{border-color:var(--terra-600);color:var(--terra-600)}
+    .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}.btn-ghost:hover{background:rgba(255,255,255,.12)}
+    .btn-block{width:100%}
+    header.site{position:sticky;top:0;z-index:100;background:rgba(248,241,231,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.8rem}
+    .brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--ink)}
+    .brand .mark{width:44px;height:44px;border-radius:50%;background:var(--terra-600);color:#fff;display:grid;place-items:center;font-size:1.4rem}
+    .brand b{font-family:var(--font-display);font-weight:400;font-size:1.5rem;line-height:1}.brand span{display:block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+    nav.primary{display:flex;gap:1.6rem;align-items:center}nav.primary a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem}nav.primary a:hover{color:var(--terra-600)}
+    .header-cta{display:flex;align-items:center;gap:.7rem}.navtoggle{display:none;background:none;border:1px solid var(--line);border-radius:9px;padding:.5rem .6rem;color:var(--ink)}
+    @media (max-width:880px){nav.primary{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1rem 1rem;border-bottom:1px solid var(--line);box-shadow:var(--shadow-md)}nav.primary.open{display:flex}nav.primary a{padding:.8rem .25rem;border-bottom:1px solid var(--line)}.navtoggle{display:inline-flex}.header-cta .hide{display:none}}
+    .hero{position:relative;overflow:hidden}
+    .hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;z-index:2}
+    .hero h1,.hero .lead{color:#fbf2e6}.hero .lead{color:#e6d4bf}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.5rem}
+    .badges{display:flex;flex-wrap:wrap;gap:.8rem 1.6rem;margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.18);font-size:.92rem;color:#e6d4bf}
+    .badges .it{display:flex;align-items:center;gap:.5rem}.badges strong{color:#fff}.stars{color:var(--mustard)}
+    
+    /* Tartine Bakery Scarcity Mechanics & Marquee */
+    .live-ticker-banner { background:var(--mustard); color:var(--brown-900); font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; text-align:center; overflow:hidden; white-space:nowrap; position:relative; z-index:110; border-bottom:1px solid rgba(0,0,0,0.1); }
+    .ticker-wrap { display:inline-block; animation:marquee 25s linear infinite; }
+    @keyframes marquee { 0% { transform:translate3d(0, 0, 0); } 100% { transform:translate3d(-50%, 0, 0); } }
+    .ticker-item { display:inline-block; margin-right:3rem; }
+    .ticker-pulse { width:8px; height:8px; background:var(--danger); border-radius:50%; display:inline-block; margin-right:6px; animation:pulse 1.5s infinite; vertical-align:middle; }
+    @keyframes pulse { 0% { transform:scale(0.9); opacity:1; } 50% { transform:scale(1.2); opacity:0.5; } 100% { transform:scale(0.9); opacity:1; } }
+
+    /* Order Form Container */
+    .quote{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow-md);padding:clamp(1.3rem,3vw,1.9rem);border-top:4px solid var(--terra-600);position:relative;z-index:5}
+    .quote h2{font-size:1.8rem;margin-bottom:.1rem}.quote .sub{font-size:.92rem;color:var(--mut);margin-bottom:1.1rem;font-family:var(--font-body)}
+    .field{margin-bottom:.85rem}.field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:.3rem}
+    .field input,.field select{width:100%;font:inherit;font-size:.95rem;padding:.7rem .8rem;border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;color:var(--ink)}
+    .field input:focus,.field select:focus{border-color:var(--terra-500);outline:none}
+    .field .err{display:none;color:var(--danger);font-size:.8rem;margin-top:.3rem}.field[data-invalid="true"] input{border-color:var(--danger)}.field[data-invalid="true"] .err{display:block}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    .form-status{font-size:0.95rem;font-weight:600;margin-top:.8rem;min-height:1.2em;color:var(--danger)}[data-state="ok"]{color:var(--success)!important}
+    .form-note{font-size:.76rem;color:var(--mut);margin-top:.8rem}
+
+    /* Visual Item Selector Grid & Real-time Scarcity Engine */
+    .visual-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-bottom:0.5rem; }
+    .card-option { position:relative; border:1px solid var(--line); border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; background:#fff; display:flex; flex-direction:column; transition:all 0.15s ease; }
+    .card-option:hover:not(.sold-out) { border-color:var(--terra-500); }
+    .card-option input[type="radio"] { position:absolute; top:8px; left:8px; margin:0; z-index:3; accent-color:var(--terra-600); width:18px; height:18px; }
+    .card-img { width:100%; height:75px; object-fit:cover; background:#eedec5; border-bottom:1px solid var(--line); transition:filter 0.15s; }
+    .card-meta { padding:0.5rem; display:flex; flex-direction:column; gap:0.15rem; font-size:0.8rem; position:relative; z-index:2; }
+    .card-title { font-weight:600; color:var(--ink); line-height:1.2; padding-left:18px; text-indent:-18px; }
+    .card-price { color:var(--terra-600); font-weight:700; font-size:0.85rem; margin-top:auto; }
+    
+    /* Scarcity Tickers */
+    .scarcity-ticker { font-size:0.68rem; font-weight:700; padding:2px 6px; border-radius:4px; display:inline-block; margin-top:4px; width:fit-content; }
+    .scarcity-ticker.low { color:var(--danger); background:rgba(179,64,47,0.1); }
+    .scarcity-ticker.fresh { color:var(--success); background:rgba(63,125,82,0.1); }
+    
+    /* Tartine Style Sold Out UI Guard */
+    .card-option.sold-out { opacity:0.5; cursor:not-allowed; background:var(--cream); }
+    .card-option.sold-out .card-title { text-decoration:line-through; color:var(--mut); }
+    .card-option.sold-out .card-img { filter:grayscale(1); }
+    .card-option.sold-out input[type="radio"] { display:none; }
+    .card-option.sold-out .scarcity-ticker { color:#fff; background:var(--mut); }
+
+    /* Tap-Friendly Calendar Pills */
+    .pills-row { display:flex; gap:0.4rem; overflow-x:auto; padding-bottom:4px; scrollbar-width:none; }
+    .pills-row::-webkit-scrollbar { display:none; }
+    .pill-label { flex:1; text-align:center; min-width:75px; }
+    .pill-label input[type="radio"] { position:absolute; opacity:0; width:0; height:0; }
+    .pill-btn { display:block; padding:0.6rem 0.4rem; border:1px solid var(--line); background:#fff; border-radius:var(--radius-sm); font-size:0.82rem; font-weight:600; color:var(--ink); cursor:pointer; text-wrap:nowrap; transition:all 0.15s; }
+    .pill-btn span { display:block; font-size:0.68rem; color:var(--mut); font-weight:400; margin-top:1px; }
+    .pill-label input[type="radio"]:checked + .pill-btn { background:var(--brown-900); color:#fff; border-color:var(--brown-900); }
+    .pill-label input[type="radio"]:checked + .pill-btn span { color:rgba(255,255,255,0.7); }
+
+    /* Live Batch Freshness Tracker Blueprint */
+    .freshness-tracker { background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:0.75rem; margin-bottom:1rem; }
+    .fresh-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; }
+    .fresh-bar { height:6px; background:var(--line); border-radius:3px; position:relative; overflow:hidden; }
+    .fresh-fill { height:100%; width:78%; background:linear-gradient(90deg, var(--mustard), var(--terra-500)); border-radius:3px; }
+
+    /* Dynamic Upgrades Section */
+    .upgrades-section { border-top:1px dashed var(--line); border-bottom:1px dashed var(--line); padding-block:0.75rem; margin-block:0.9rem; }
+    .upgrades-title { font-size:0.82rem; font-weight:700; color:var(--brown-900); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.3rem; }
+    .upgrade-item { display:flex; align-items:center; justify-content:space-between; background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:0.55rem 0.7rem; margin-bottom:0.4rem; cursor:pointer; font-size:0.85rem; transition:border-color 0.15s; }
+    .upgrade-item:hover { border-color:var(--terra-500); }
+    .upgrade-check { display:flex; align-items:center; gap:0.5rem; font-weight:500; }
+    .upgrade-check input { accent-color:var(--terra-600); width:16px; height:16px; margin:0; }
+    .upgrade-price { font-weight:700; color:var(--terra-600); }
+
+    /* Dominique Ansel Floating Interactive Workshop Module */
+    .floating-workshop-dock { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:rgba(58, 36, 24, 0.96); backdrop-filter:blur(12px); border-radius:30px; padding:10px 24px; display:flex; align-items:center; gap:20px; box-shadow:0 20px 50px rgba(0,0,0,0.3); z-index:2000; border:1px solid rgba(233,221,202,0.15); width:calc(100% - 40px); max-width:680px; justify-content:space-between; transition:all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .dock-title { color:var(--mustard); font-family:var(--font-display); font-size:1rem; white-space:nowrap; }
+    .dock-items-cluster { display:flex; gap:12px; overflow-x:auto; scrollbar-width:none; padding-block:4px; }
+    .dock-items-cluster::-webkit-scrollbar { display:none; }
+    .dock-pastry-node { width:48px; height:48px; border-radius:50%; background:var(--cream); cursor:pointer; border:2px solid transparent; transition:all 0.2s ease; flex-shrink:0; position:relative; overflow:hidden; }
+    .dock-pastry-node img { width:100%; height:100%; object-fit:cover; }
+    .dock-pastry-node.active, .dock-pastry-node:hover { border-color:var(--mustard); transform:scale(1.1); }
+
+    /* Pastry Inspection Card Modal Architecture */
+    .inspection-overlay { position:fixed; inset:0; background:rgba(27, 16, 11, 0.85); backdrop-filter:blur(6px); z-index:3000; display:none; align-items:center; justify-content:center; padding:20px; }
+    .inspection-overlay.open { display:flex; }
+    .inspection-card { background:var(--paper); border-radius:var(--radius); max-width:480px; width:100%; overflow:hidden; box-shadow:var(--shadow-md); border-top:5px solid var(--mustard); position:relative; animation:slideUpCard 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes slideUpCard { from { transform:translateY(30px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+    .close-inspect { position:absolute; top:14px; right:14px; width:32px; height:32px; background:var(--brown-900); color:#fff; border:none; border-radius:50%; cursor:pointer; font-weight:700; display:grid; place-items:center; font-size:1rem; z-index:10; }
+    .inspect-hero-img { width:100%; height:200px; object-fit:cover; background:var(--brown-800); }
+    .inspect-body { padding:24px; }
+    .inspect-pastry-title { font-family:var(--font-display); font-size:1.6rem; margin-bottom:4px; color:var(--brown-900); }
+    .inspect-tag { font-size:0.7rem; text-transform:uppercase; font-weight:700; letter-spacing:0.1em; color:var(--terra-600); margin-bottom:12px; display:inline-block; }
+    .inspect-desc { font-size:0.92rem; color:var(--mut); margin-bottom:20px; }
+    
+    /* Interactive Deconstruction Blueprint Elements */
+    .deconstruct-zone { background:var(--cream); border:1px solid var(--line); border-radius:var(--radius-sm); padding:16px; margin-bottom:20px; }
+    .blueprint-title { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px; color:var(--brown-900); display:flex; justify-content:space-between; }
+    .blueprint-layer-name { color:var(--terra-600); }
+    .blueprint-slider { width:100%; accent-color:var(--brown-900); cursor:pointer; margin-bottom:10px; }
+    .layer-detail-box { font-size:0.85rem; color:var(--ink); line-height:1.4; min-height:40px; padding-left:8px; border-left:2px solid var(--mustard); }
+
+    /* Live-Toast Notifications System */
+    .toast-container { position:fixed; top:80px; right:20px; z-index:2500; display:flex; flex-direction:column; gap:10px; pointer-events:none; }
+    .live-toast { background:var(--paper); border-left:4px solid var(--success); padding:12px 18px; border-radius:8px; box-shadow:0 10px 30px rgba(58,36,24,0.15); display:flex; align-items:center; gap:12px; font-size:0.85rem; font-weight:600; color:var(--brown-900); pointer-events:auto; transform:translateX(120%); animation:slideInToast 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, fadeOutToast 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045) 4.5s forwards; }
+    @keyframes slideInToast { to { transform:translateX(0); } }
+    @keyframes fadeOutToast { to { transform:translateX(130%); opacity:0; } }
+    .toast-ico { font-size:1.2rem; }
+
+    /* Catering Layout Toggles */
+    #bookForm[data-context="catering"] .retail-only { display:none !important; }
+    #bookForm:not([data-context="catering"]) .catering-only { display:none !important; }
+    #bookForm[data-context="catering"] { border-top-color:var(--mustard); }
+
+    .strip{background:var(--brown-900)}.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;padding-block:1.8rem;text-align:center}
+    .strip .num{font-family:var(--font-display);font-weight:400;font-size:clamp(2rem,4.4vw,3rem);color:var(--mustard);font-variant-numeric:tabular-nums}.strip .lbl{font-size:.8rem;color:#bfa98e;margin-top:.2rem;text-transform:uppercase;letter-spacing:.1em}
+    .sec-head{max-width:62ch;margin-bottom:2.4rem}
+    .menu{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 2.6rem}
+    .mcol h3{color:var(--terra-600);font-size:1.35rem;border-bottom:1px solid var(--line);padding-bottom:.6rem;margin-bottom:.8rem}
+    .mrow{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding:.45rem 0}.mrow .nm{font-weight:600} .mrow .ds{display:block;font-size:.83rem;color:var(--mut);font-weight:400}.mrow .pr{color:var(--terra-600);font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+    .feature{background:var(--paper)}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+    .svc{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;transition:transform .15s,border-color .15s}.svc:hover{transform:translateY(-3px);border-color:var(--terra-600)}.svc .ico{font-size:1.9rem;margin-bottom:.55rem}.svc h3{margin-bottom:.3rem}.svc p{margin:0;color:var(--mut);font-size:.92rem}
+    .cater{background:linear-gradient(150deg,var(--terra-600),#94401f);color:#fff}.cater .wrap{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center}.cater p{margin:0;color:#ffe7da}.cater h2{color:#fff;margin:0 0 .2em}
+    .gallery{background:var(--cream)}
+    .ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+    .gimg{aspect-ratio:1/1;border-radius:var(--radius-sm);display:grid;place-items:center;color:#fbf2e6;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+    .gimg.a{background:linear-gradient(135deg,#c0633a,#6b452c)}.gimg.b{background:linear-gradient(135deg,#dca73c,#8a5f1f)}.gimg.c{background:linear-gradient(135deg,#7d6552,#3a2418)}.gimg.d{background:linear-gradient(135deg,#d2734a,#94401f)}
+    .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+    .qt{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem}.qt .stars{display:block;margin-bottom:.6rem} .qt blockquote{margin:0 0 1rem;font-size:1.05rem}
+    .qt .who{display:flex;align-items:center;gap:.7rem}
+    .avatar{width:42px;height:42px;border-radius:50%;background:var(--terra-600);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.95rem;font-family:var(--font-display)}.who .nm{font-weight:700;font-size:.92rem}.who .loc{font-size:.8rem;color:var(--mut)}
+    .faq{background:var(--paper)}.faqlist{max-width:800px;margin-inline:auto}
+    details{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:.8rem;overflow:hidden}
+    summary{cursor:pointer;padding:1.05rem 1.2rem;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center}summary::-webkit-details-marker{display:none}summary::after{content:"+";font-size:1.4rem;color:var(--terra-600)}details[open] summary::after{content:"−"}details .ans{padding:0 1.2rem 1.15rem;color:var(--mut)}
+    .finalcta{background:radial-gradient(120% 120% at 20% 0%,var(--brown-700),var(--brown-900) 64%)}.finalcta .wrap{display:grid;grid-template-columns:1fr .9fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}.finalcta h2{color:#fff}.finalcta p{color:#e6d4bf}
+    .contact-list{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;gap:.9rem}.contact-list li{display:flex;gap:.7rem;font-size:.98rem;color:#e6d4bf}.contact-list .ico{color:var(--mustard)}.contact-list a{color:#fff;font-weight:700;text-decoration:none}.contact-list a:hover{text-decoration:underline}
+    .mapembed{width:100%;height:260px;border:0;border-radius:var(--radius-sm);background:var(--brown-800)}
+    footer.site{background:var(--brown-900);color:#bfa98e;font-size:.9rem}footer.site .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:3rem 1.5rem}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.12)}.footer-bottom .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:1.2rem;font-size:.8rem;color:#8c7560}
+    @media (max-width:980px){.hero .wrap,.finalcta .wrap{grid-template-columns:1fr}.grid3,.tgrid{grid-template-columns:1fr 1fr}.ggrid{grid-template-columns:repeat(2,1fr)}.strip .wrap{grid-template-columns:1fr 1fr;gap:1.6rem 1rem}.cater .wrap{grid-template-columns:1fr;text-align:center}}
+    @media (max-width:600px){.grid3,.tgrid,.menu,.ggrid,.row2{grid-template-columns:1fr}.hero-actions .btn{flex:1 1 auto}.visual-grid{grid-template-columns:1fr}.floating-workshop-dock{padding:10px 16px;gap:10px;}.dock-title{display:none;}footer.site .wrap{flex-direction:column;gap:1.5rem;text-align:center}}
+  </style>
+<style>
+  img.ufill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;border:0}
+  .ph,.ph2,.half,.photo,.gimg{position:relative;overflow:hidden}
+  .hero{background-image:linear-gradient(180deg,rgba(11,13,18,.60),rgba(11,13,18,.74)),url('https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=1600&h=900&fit=crop&q=80&auto=format')!important;background-size:cover!important;background-position:center!important}
+  .brand .mark svg{width:22px;height:22px;display:block}
+  .svc{padding:0!important;overflow:hidden;display:flex;flex-direction:column}
+  .svc>img.scard{width:100%;height:158px;object-fit:cover;display:block;border:0}
+  .svc>.ico{margin:1.3rem 1.5rem 0}
+  .svc>h3{margin:.5rem 1.5rem .3rem}
+  .svc>p{margin:0 1.5rem 1.5rem}
+  .hero h1,.hero .lead,.hero .eyebrow{text-shadow:0 2px 14px rgba(0,0,0,.45)}
+</style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <div class="live-ticker-banner" role="status" aria-live="off">
+    <div class="ticker-wrap">
+      <span class="ticker-item"><span class="ticker-pulse"></span><strong>LIVE BAKERY COUNTER:</strong> Morning rush active. Pastries cycling quickly.</span>
+      <span class="ticker-item">🥐 Sourdough Croissants: <strong>Batch 2 out now</strong></span>
+      <span class="ticker-item">⏳ Morning Buns: <strong style="color:var(--danger)">Only 3 left in case</strong></span>
+      <span class="ticker-item">🍞 Baguettes: Next pull at 11:15 AM</span>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="floating-workshop-dock" id="workshopDock">
+    <div class="dock-title">✨ Workshop Vault</div>
+    <div class="dock-items-cluster" id="dockCluster"></div>
+    <button class="btn btn-terra" style="padding:0.5rem 1rem; font-size:0.8rem;" id="dockReserveBtn">Reserve Selected</button>
+  </div>
+
+  <div class="inspection-overlay" id="inspectOverlay" role="dialog" aria-modal="true" aria-labelledby="inspectTitle">
+    <div class="inspection-card">
+      <button class="close-inspect" id="closeInspectBtn" aria-label="Close window">&times;</button>
+      <img class="inspect-hero-img" id="inspectImg" src="https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=400&h=300&fit=crop" alt="Pastry view profile" />
+      <div class="inspect-body">
+        <span class="inspect-tag">In the Lab</span>
+        <h2 class="inspect-pastry-title" id="inspectTitle">Pastry Name</h2>
+        <p class="inspect-desc" id="inspectDesc">Detailed textural profile description placeholder.</p>
+        
+        <div class="deconstruct-zone">
+          <div class="blueprint-title">
+            <span>Deconstruct Build</span>
+            <span class="blueprint-layer-name" id="layerIndicator">Layer 1: Base Crust</span>
+          </div>
+          <label for="blueprintSlider" class="skip">Adjust internal layer inspection depth</label>
+          <input type="range" class="blueprint-slider" id="blueprintSlider" min="1" max="3" value="1" step="1">
+          <div class="layer-detail-box" id="layerDetailText">
+            Move slider to strip back layers and look inside the creation.
+          </div>
+        </div>
+
+        <button class="btn btn-terra btn-block" id="modalSelectBtn">Select This Creation</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Wildflour Bakery &amp; Café — home"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h12v4a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5z"/><path d="M17 9h2.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3.5c0 1-1 1.2-1 2.2M11.5 3.5c0 1-1 1.2-1 2.2"/><path d="M4 20h14"/></svg></span><span><b translate="no">Wildflour</b><span>Bakery &amp; Café · Asheville</span></span></a>
+      <nav class="primary" id="nav" aria-label="Primary"><a href="#menu">Menu</a><a href="#why">Process</a><a href="#catering">Catering</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></nav>
+      <div class="header-cta">
+        <a class="btn btn-outline hide" href="tel:+18285550176">(828)&nbsp;555&#8209;0176</a>
+        <a class="btn btn-terra" href="#order" id="headerOrderBtn">Order Ahead</a>
+        <button class="navtoggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open navigation menu" id="navToggle"><span aria-hidden="true">☰</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main"><a id="top"></a>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow">Coffee · Pastries · Fresh Bread · West Asheville</p>
+          <h1 id="hero-title">Baked this morning. Just for you.</h1>
+          <p class="lead">Slow-roasted coffee, butter-laminated croissants, and from-scratch sourdough out of the oven daily. Order ahead and skip the line, or pull up a chair and stay a while.</p>
+          <div class="hero-actions"><a class="btn btn-terra" href="#order" id="heroOrderBtn">Order for Pickup</a><a class="btn btn-ghost" href="#menu">See the Menu</a></div>
+          <div class="badges">
+            <span class="it"><span class="stars" aria-hidden="true">★★★★★</span> <strong>4.8</strong>&nbsp;· 1,650 reviews</span>
+            <span class="it"><span aria-hidden="true">🌾</span> Milled-fresh flour</span>
+            <span class="it"><span aria-hidden="true">☕</span> Local roaster</span>
+          </div>
+        </div>
+        
+        <div class="quote" id="order">
+          <div class="freshness-tracker retail-only">
+            <div class="fresh-head">
+              <span>Case Freshness Counter</span>
+              <span style="color:var(--terra-600)">78% Fulfilled</span>
+            </div>
+            <div class="fresh-bar"><div class="fresh-fill"></div></div>
+          </div>
+
+          <h2 id="formTitle">Order ahead</h2>
+          <p class="sub" id="formSub">Reserve your pastries and coffee for pickup — we&rsquo;ll have it ready and warm.</p>
+          
+          <form id="bookForm" novalidate>
+            <div class="field" data-field>
+              <label for="b-name">Name</label>
+              <input id="b-name" name="name" type="text" autocomplete="name" placeholder="Sam Carter" required aria-describedby="err-name" />
+              <span class="err" id="err-name">Please enter your name.</span>
+            </div>
+            
+            <div class="row2">
+              <div class="field" data-field>
+                <label for="b-phone">Phone</label>
+                <input id="b-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(828) 555-0123" required aria-describedby="err-phone" />
+                <span class="err" id="err-phone">Add a valid phone number.</span>
+              </div>
+              
+              <div class="field retail-only" data-field>
+                <label for="b-time">Pickup time</label>
+                <input id="b-time" name="time" type="time" required aria-describedby="err-time" />
+                <span class="err" id="err-time">Pick a pick-up time.</span>
+              </div>
+              <div class="field catering-only" data-field>
+                <label for="b-date">Event Date</label>
+                <input id="b-date" name="date" type="date" required aria-describedby="err-date" />
+                <span class="err" id="err-date">Select event date.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <span id="selectorLabel" style="font-size:.82rem; font-weight:600; display:block; margin-bottom:.3rem">Select your items</span>
+              <div class="visual-grid" role="radiogroup" aria-labelledby="selectorLabel">
+                <label class="card-option">
+                  <input type="radio" name="order_selection" value="pastry" id="radio-pastry" checked />
+                  <img class="card-img" src="https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=150&h=75&fit=crop" alt="">
+                  <div class="card-meta">
+                    <span class="card-title">Miso Croissant Box</span>
+                    <span class="card-price">$24.00</span>
+                    <span class="scarcity-ticker low">Only 3 boxes left</span>
+                  </div>
+                </label>
+                <label class="card-option">
+                  <input type="radio" name="order_selection" value="bread" id="radio-bread" />
+                  <img class="card-img" src="https://images.unsplash.com/photo-1176913888382-5724473b246a?w=150&h=75&fit=crop" alt="">
+                  <div class="card-meta">
+                    <span class="card-title">Fresh Sourdough Loaf</span>
+                    <span class="card-price">$9.00</span>
+                    <span class="scarcity-ticker fresh">Oven Fresh</span>
+                  </div>
+                </label>
+                <label class="card-option sold-out">
+                  <input type="radio" name="order_selection" value="coffee" disabled />
+                  <img class="card-img" src="https://images.unsplash.com/photo-11620146344904-097a0002d797?w=150&h=75&fit=crop" alt="">
+                  <div class="card-meta">
+                    <span class="card-title">100-Layer Morning Bun</span>
+                    <span class="card-price">$8.00</span>
+                    <span class="scarcity-ticker">Sold Out</span>
+                  </div>
+                </label>
+                <label class="card-option" id="customCardOption">
+                  <input type="radio" name="order_selection" value="custom" id="radio-custom" />
+                  <img class="card-img" src="https://images.unsplash.com/photo-1176913888359-fbfae1967b67?w=150&h=75&fit=crop" alt="">
+                  <div class="card-meta">
+                    <span class="card-title">Custom Laboratory Set</span>
+                    <span class="card-price">Quote</span>
+                    <span class="scarcity-ticker fresh" style="color:var(--mustard); background:rgba(220,167,60,0.1)">48h Lead</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="field retail-only">
+              <span id="dayLabel" style="font-size:.82rem; font-weight:600; display:block; margin-bottom:.3rem">Pickup Day</span>
+              <div class="pills-row" id="calendarPills" role="radiogroup" aria-labelledby="dayLabel"></div>
+            </div>
+
+            <div class="upgrades-section">
+              <div class="upgrades-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                Upgrade Your Morning
+              </div>
+              <label class="upgrade-item retail-only">
+                <div class="upgrade-check">
+                  <input type="checkbox" name="addon_latte" value="latte" />
+                  <span>Add an Iced Latte</span>
+                </div>
+                <span class="upgrade-price">+$5.00</span>
+              </label>
+              <label class="upgrade-item retail-only">
+                <div class="upgrade-check">
+                  <input type="checkbox" name="addon_jam" value="jam" />
+                  <span>Add Side of House Sourdough Jam</span>
+                </div>
+                <span class="upgrade-price">+$1.50</span>
+              </label>
+              <div class="field catering-only" style="margin:0;">
+                <label for="b-details">Event Details &amp; Quantity Requests</label>
+                <textarea id="b-details" name="details" rows="3" style="width:100%; font:inherit; border:1px solid var(--line); border-radius:var(--radius-sm); padding:0.5rem;" placeholder="Estimated guest count, dietary limitations..."></textarea>
+              </div>
+            </div>
+
+            <button class="btn btn-terra btn-block" type="submit" id="submitBtn">Place Pickup Order</button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip" aria-label="By the numbers">
+      <div class="wrap">
+        <div><div class="num">5am</div><div class="lbl">When baking starts</div></div>
+        <div><div class="num">12</div><div class="lbl">Pastries daily</div></div>
+        <div><div class="num">100%</div><div class="lbl">From scratch</div></div>
+        <div><div class="num">9 yrs</div><div class="lbl">In the neighborhood</div></div>
+      </div>
+    </section>
+
+    <section id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <div class="sec-head"><p class="eyebrow">On the board</p><h2 id="menu-title">Menu &amp; favorites.</h2></div>
+        <div class="menu">
+          <div class="mcol">
+            <h3>Bakery</h3>
+            <div class="mrow"><span class="nm">Butter croissant<span class="ds">36-hour laminated</span></span><span class="pr">$4.5</span></div>
+            <div class="mrow"><span class="nm">Morning bun<span class="ds">Cinnamon &amp; orange sugar</span></span><span class="pr">$5</span></div>
+            <div class="mrow"><span class="nm">Sourdough loaf<span class="ds">Naturally leavened</span></span><span class="pr">$9</span></div>
+          </div>
+          <div class="mcol">
+            <h3>Coffee bar</h3>
+            <div class="mrow"><span class="nm">Drip coffee<span class="ds">Rotating local roast</span></span><span class="pr">$3.5</span></div>
+            <div class="mrow"><span class="nm">Latte<span class="ds">Hot or iced</span></span><span class="pr">$5</span></div>
+            <div class="mrow"><span class="nm">Cortado<span class="ds">Two parts steamed</span></span><span class="pr">$4.5</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature" id="why" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="sec-head"><p class="eyebrow">Why Wildflour</p><h2 id="why-title">Made the slow way.</h2></div>
+        <div class="grid3">
+          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1174917256230-f90459068975?w=600&h=380&fit=crop" alt="" loading="lazy"><div class="ico" aria-hidden="true">🌾</div><h3>Milled-fresh flour</h3><p>We stone-mill grain in-house for breads with more flavor and better nutrition.</p></div>
+          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-11769138886139-b6aa68782f53?w=600&h=380&fit=crop" alt="" loading="lazy"><div class="ico" aria-hidden="true">⏳</div><h3>Long, cold ferments</h3><p>Our doughs rest 24–36 hours, so everything is easier to digest and tastes richer.</p></div>
+          <div class="svc"><img class="scard" src="https://images.unsplash.com/photo-1176913888284-34d3d68f4ba5?w=600&h=380&fit=crop" alt="" loading="lazy"><div class="ico" aria-hidden="true">🤝</div><h3>Local everything</h3><p>Local roaster, local dairy, local eggs. We know the people who grow our food.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cater" id="catering" aria-labelledby="catering-title">
+      <div class="wrap">
+        <div>
+          <h2 id="catering-title">Catering &amp; custom cakes</h2>
+          <p>Feeding a meeting, a brunch, or a birthday? We do pastry platters, sandwich boxes, coffee service, and custom celebration cakes. Give us 48 hours and we&rsquo;ll handle the rest.</p>
+        </div>
+        <button class="btn btn-ghost" type="button" id="caterTriggerBtn">Plan a Catering Order</button>
+      </div>
+    </section>
+
+    <section id="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="sec-head"><p class="eyebrow">Verified reviews</p><h2 id="reviews-title">A neighborhood favorite.</h2></div>
+        <div class="tgrid">
+          <div class="qt"><span class="stars" aria-hidden="true">★★★★★</span><blockquote>&ldquo;The croissants are the best I&rsquo;ve had outside Paris. Ordering ahead means I&rsquo;m in and out in two minutes.&rdquo;</blockquote><div class="who"><span class="avatar" aria-hidden="true">LC</span><span><span class="nm">Lily C.</span><span class="loc">West Asheville</span></span></div></div>
+          <div class="qt"><span class="stars" aria-hidden="true">★★★★★</span><blockquote>&ldquo;Their sourdough has ruined grocery-store bread for me forever. The staff knows my order by heart.&rdquo;</blockquote><div class="who"><span class="avatar" aria-hidden="true">DM</span><span><span class="nm">Diego M.</span><span class="loc">Asheville, NC</span></span></div></div>
+          <div class="qt"><span class="stars" aria-hidden="true">★★★★★</span><blockquote>&ldquo;Catered our office brunch and everyone raved. The custom birthday cake was gorgeous and delicious.&rdquo;</blockquote><div class="who"><span class="avatar" aria-hidden="true">AK</span><span><span class="nm">Anna K.</span><span class="loc">Montford, Asheville</span></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="finalcta" id="visit" aria-labelledby="cta-title">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow" style="color:var(--mustard)">Pop in or pick up</p>
+          <h2 id="cta-title">We&rsquo;ll save you a croissant.</h2>
+          <p class="lead" style="color:#e6d4bf">Order ahead to skip the morning line, or stop by and see what just came out of the oven.</p>
+          <div class="hero-actions" style="margin-top:1.4rem"><a class="btn btn-terra" href="#order" id="finalOrderBtn">Order for Pickup</a></div>
+          <ul class="contact-list">
+            <li><span class="ico" aria-hidden="true">📍</span> <span>610&nbsp;Haywood Rd, Asheville, NC&nbsp;28806</span></li>
+            <li><span class="ico" aria-hidden="true">🕐</span> <span>Daily 7am–3pm · Closed Mondays</span></li>
+          </ul>
+        </div>
+        <div><iframe class="mapembed" title="Map location details of Wildflour Bakery" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-82.6115%2C35.5601%2C-82.4915%2C35.6301&amp;layer=mapnik&amp;marker=35.5951%2C-82.5515"></iframe></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <a class="brand" href="#top"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h12v4a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5z"/><path d="M17 9h2.5a2.5 2.5 0 0 1 0 5H17"/><path d="M4 20h14"/></svg></span><span><b translate="no">Wildflour</b><span>Bakery &amp; Café</span></span></a>
+      <div style="font-size: 0.8rem; color:#8c7560;">© <span id="year">2026</span> Wildflour Bakery. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // System Data & Architecture Initialization
+    const VAULT_DATA = [
+      {
+        id: 'pastry',
+        title: 'Miso Croissant Box',
+        desc: 'A profound 36-hour wild-ferment pastry with organic dark miso paste ribboned throughout the European butter block layers.',
+        img: 'https://images.unsplash.com/photo-11769138886135-93d1dd8ac06a?w=400&h=300&fit=crop',
+        layers: [
+          { name: 'Layer 1: Laminated Crust', detail: 'Flaky crust featuring crisp honeyed outer ridges dusted with black sea salt shards.' },
+          { name: 'Layer 2: Miso Lamination Matrix', detail: 'Umami-rich aeration pockets packed with sweet white and dark savory miso structures.' },
+          { name: 'Layer 3: Soft Core Crumb', detail: 'Pillowy, custard-like center that holds pockets of deep steam condensation.' }
+        ]
+      },
+      {
+        id: 'bread',
+        title: 'Fresh Sourdough Loaf',
+        desc: 'Our high-hydration house flagship loaf made of ancient grain varietals stone-milled under strict temperature monitors.',
+        img: 'https://images.unsplash.com/photo-1176913888382-5724473b246a?w=400&h=300&fit=crop',
+        layers: [
+          { name: 'Layer 1: Blistered Crust', detail: 'Thick caramelized exterior displaying aggressive blistering from intense stone-fired wood ovens.' },
+          { name: 'Layer 2: Wild Sourdough Webbing', detail: 'Irregular open crumb lattice showing deep acetic and lactic acid fermentation pathways.' },
+          { name: 'Layer 3: Sprouted Wheat Nucleus', detail: 'Nutty foundation packed with soft, sprouted grains for added structure.' }
+        ]
+      },
+      {
+        id: 'custom',
+        title: 'Custom Laboratory Set',
+        desc: 'A tailored tasting sequence configured under master confectioner specifications for high-profile gatherings.',
+        img: 'https://images.unsplash.com/photo-1176913888359-fbfae1967b67?w=400&h=300&fit=crop',
+        layers: [
+          { name: 'Layer 1: Confection Matrix', detail: 'Exotic fruit reduction compounds layered with structural biscuit steps.' },
+          { name: 'Layer 2: Velvet Emulsion', detail: 'Ultra-creamy botanical mousse designed to dissipate evenly at skin temperature.' },
+          { name: 'Layer 3: Monogram Base', detail: 'A dense almond pastry sable cookie layer holding structural integrity together.' }
+        ]
+      }
+    ];
+
+    let currentSelectedPastryIndex = 0;
+
+    // Navigation Menu Toggle Logic
+    (function(){
+      var b=document.getElementById('navToggle'), n=document.getElementById('nav');
+      if(b&&n){
+        b.addEventListener('click',function(){
+          var o=n.classList.toggle('open');
+          b.setAttribute('aria-expanded',String(o));
+          b.setAttribute('aria-label', o ? 'Close navigation menu' : 'Open navigation menu');
+        });
+        n.addEventListener('click',function(e){
+          if(e.target.tagName==='A'){
+            n.classList.remove('open');
+            b.setAttribute('aria-expanded','false');
+            b.setAttribute('aria-label', 'Open navigation menu');
+          }
+        });
+      }
+    })();
+    
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Floating Lab Elements Generator
+    (function initWorkshopDock(){
+      const cluster = document.getElementById('dockCluster');
+      if(!cluster) return;
+      
+      cluster.innerHTML = VAULT_DATA.map((item, index) => `
+        <div class="dock-pastry-node ${index === 0 ? 'active' : ''}" data-idx="${index}" tabindex="0" role="button" title="Inspect ${item.title}">
+          <img src="${item.img}" alt="${item.title}">
+        </div>
+      `).join('');
+
+      cluster.querySelectorAll('.dock-pastry-node').forEach(node => {
+        const triggersInspection = function() {
+          cluster.querySelectorAll('.dock-pastry-node').forEach(n => n.classList.remove('active'));
+          node.classList.add('active');
+          currentSelectedPastryIndex = parseInt(node.getAttribute('data-idx'));
+          openInspectionModal(VAULT_DATA[currentSelectedPastryIndex]);
+        };
+        node.addEventListener('click', triggersInspection);
+        node.addEventListener('keydown', function(e) { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); triggersInspection(); } });
+      });
+    })();
+
+    // Modal Control Routines
+    const overlay = document.getElementById('inspectOverlay');
+    const bSlider = document.getElementById('blueprintSlider');
+    const layerIndicator = document.getElementById('layerIndicator');
+    const layerDetailText = document.getElementById('layerDetailText');
+
+    function openInspectionModal(pastry) {
+      document.getElementById('inspectImg').src = pastry.img;
+      document.getElementById('inspectImg').alt = pastry.title;
+      document.getElementById('inspectTitle').textContent = pastry.title;
+      document.getElementById('inspectDesc').textContent = pastry.desc;
+      
+      bSlider.value = 1;
+      updateBlueprintDisplay(pastry, 0);
+
+      bSlider.oninput = function() {
+        updateBlueprintDisplay(pastry, parseInt(this.value) - 1);
+      };
+
+      overlay.classList.add('open');
+      document.getElementById('closeInspectBtn').focus();
+    }
+
+    function updateBlueprintDisplay(pastry, layerIndex) {
+      const targetLayer = pastry.layers[layerIndex];
+      layerIndicator.textContent = targetLayer.name;
+      layerDetailText.textContent = targetLayer.detail;
+    }
+
+    const closeModal = () => overlay.classList.remove('open');
+    document.getElementById('closeInspectBtn').onclick = closeModal;
+    
+    // Accessibility: Close modal on Esc keypress
+    window.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape' && overlay.classList.contains('open')) {
+        closeModal();
+      }
+    });
+    
+    // Wire modal selection back into form
+    document.getElementById('modalSelectBtn').onclick = function() {
+      const activePastry = VAULT_DATA[currentSelectedPastryIndex];
+      const targetRadio = document.getElementById(`radio-${activePastry.id}`);
+      if(targetRadio) {
+        targetRadio.checked = true;
+        targetRadio.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      closeModal();
+      document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    document.getElementById('dockReserveBtn').onclick = function() {
+      const activePastry = VAULT_DATA[currentSelectedPastryIndex];
+      const targetRadio = document.getElementById(`radio-${activePastry.id}`);
+      if(targetRadio) {
+        targetRadio.checked = true;
+        targetRadio.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    // Live Toast Notification Loops
+    const TOAST_MESSAGES = [
+      { text: "Batch 3: Sourdough Croissants out of the oven.", ico: "🥐" },
+      { text: "Case Alert: Only 2 Cinnamon Morning Buns remain.", ico: "⏳" },
+      { text: "Barista Cue: Single-Origin Espresso extraction active.", ico: "☕" }
+    ];
+
+    function spawnNotificationToast() {
+      const container = document.getElementById('toastContainer');
+      if(!container) return;
+      
+      const randomMsg = TOAST_MESSAGES[Math.floor(Math.random() * TOAST_MESSAGES.length)];
+      const toast = document.createElement('div');
+      toast.className = 'live-toast';
+      toast.innerHTML = `<span class="toast-ico" aria-hidden="true">${randomMsg.ico}</span><span>${randomMsg.text}</span>`;
+      
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 5000);
+    }
+
+    setTimeout(spawnNotificationToast, 3000);
+    setInterval(spawnNotificationToast, 15000);
+
+    // HTML5 Real-Time Form Validation Engine (Restored from index5)
+    (function initValidationSuite(){
+      var f = document.getElementById('bookForm');
+      if(!f) return;
+      var s = document.getElementById('formStatus'), sb = document.getElementById('submitBtn');
+      var calendarPillsContainer = document.getElementById('calendarPills');
+
+      // Generate Interactive Pills Dynamic Architecture
+      const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      let pillsHtml = '';
+      for (let i = 0; i < 4; i++) {
+        let d = new Date();
+        d.setDate(d.getDate() + i);
+        let titleLabel = i === 0 ? 'Today' : (i === 1 ? 'Tomorrow' : dayNames[d.getDay()]);
+        let dateString = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        pillsHtml += `
+          <label class="pill-label">
+            <input type="radio" name="day_pill" value="${titleLabel}" ${i===0?'checked':''} />
+            <span class="pill-btn">${titleLabel}<span>${dateString}</span></span>
+          </label>`;
+      }
+      if(calendarPillsContainer) calendarPillsContainer.innerHTML = pillsHtml;
+
+      function setFormContext(mode) {
+        if (mode === 'catering') {
+          f.setAttribute('data-context', 'catering');
+          document.getElementById('formTitle').textContent = "Inquire About Catering";
+          sb.textContent = "Submit Catering Request";
+        } else {
+          f.removeAttribute('data-context');
+          document.getElementById('formTitle').textContent = "Order ahead";
+          sb.textContent = "Place Pickup Order";
+        }
+      }
+
+      document.getElementById('caterTriggerBtn').onclick = () => { setFormContext('catering'); document.getElementById('order').scrollIntoView({ behavior: 'smooth' }); };
+      document.getElementById('radio-custom').onchange = () => setFormContext('catering');
+      document.getElementById('radio-pastry').onchange = () => setFormContext('retail');
+      document.getElementById('radio-bread').onchange = () => setFormContext('retail');
+
+      // Restored Validation Utility Loops
+      function validateInputNode(input) {
+        var wrapper = input.closest('[data-field]');
+        if (!wrapper || input.disabled || (input.offsetParent === null)) return true;
+        
+        var isValid = input.checkValidity() && input.value.trim() !== '';
+        wrapper.setAttribute('data-invalid', isValid ? 'false' : 'true');
+        input.setAttribute('aria-invalid', isValid ? 'false' : 'true');
+        return isValid;
+      }
+
+      f.querySelectorAll('[data-field] input').forEach(function(input) {
+        input.addEventListener('blur', function() { validateInputNode(input); });
+        input.addEventListener('input', function() { if(wrapper = input.closest('[data-field]')) wrapper.removeAttribute('data-invalid'); });
+      });
+
+      f.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var baselinePass = true;
+        var firstErrorNode = null;
+
+        f.querySelectorAll('[data-field] input').forEach(function(input) {
+          if (!validateInputNode(input)) {
+            baselinePass = false;
+            if (!firstErrorNode) firstErrorNode = input;
+          }
+        });
+
+        if (!baselinePass) {
+          s.textContent = 'Please update the highlighted options before continuing.';
+          s.removeAttribute('data-state');
+          if (firstErrorNode) firstErrorNode.focus();
+          return;
+        }
+
+        sb.disabled = true;
+        sb.textContent = 'Securing Allocation…';
+        
+        setTimeout(() => {
+          f.reset();
+          sb.disabled = false;
+          sb.textContent = f.getAttribute('data-context') === 'catering' ? 'Submit Catering Request' : 'Place Pickup Order';
+          s.setAttribute('data-state', 'ok');
+          s.textContent = 'Reservation locked. Check your device for confirmations.';
+          setTimeout(() => { s.textContent = ''; s.removeAttribute('data-state'); }, 6000);
+        }, 900);
+      });
+    })();
+  </script>
+<div id="whatsapp-widget" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; font-family: Arial, sans-serif;">
+    <button onclick="toggleChatCard()" style="background-color: #25D366; color: white; border: none; width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 30px;">
+        💬
+    </button>
+
+    <div id="chat-card" style="display: none; position: absolute; bottom: 75px; right: 0; width: 300px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); overflow: hidden;">
+        <div style="background-color: #25D366; color: white; padding: 15px; font-weight: bold;">
+            🌾 AgroBot Assistant
+            <div style="font-size: 11px; font-weight: normal; opacity: 0.9;">Typically replies instantly</div>
+        </div>
+        <div style="padding: 15px; color: #333; font-size: 14px; line-height: 1.4;">
+            Hi there! Need help with agricultural engineering, data predictions, or optimization? Chat with our smart assistant directly on WhatsApp!
+        </div>
+        <div style="padding: 0 15px 15px 15px;">
+            <a href="https://wa.me/65XXXXXXXX?text=Hi%20AgroBot!%20I%20need%20some%20help." target="_blank" style="background-color: #25D366; color: white; text-decoration: none; display: block; text-align: center; padding: 10px; border-radius: 5px; font-weight: bold; font-size: 14px;">
+                Start WhatsApp Chat
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleChatCard() {
+    var card = document.getElementById("chat-card");
+    if (card.style.display === "none") {
+        card.style.display = "block";
+    } else {
+        card.style.display = "none";
+    }
+}
+</script>
+</body>
+<div id="whatsapp-widget" style="position: fixed; bottom: 30px; right: 30px; z-index: 99999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        
+        <button onclick="toggleChatCard()" style="background-color: #25D366; color: white; border: none; width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.25); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; outline: none;">
+            <svg style="width: 32px; height: 32px; fill: white;" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.948 0c3.179.001 6.165 1.24 8.413 3.488 2.248 2.248 3.484 5.236 3.484 8.414 0 6.597-5.336 11.948-11.888 11.948-2.006-.001-3.98-.51-5.731-1.484L0 24zm6.59-4.846c1.657.983 3.284 1.514 5.302 1.515 5.517 0 10.007-4.49 10.007-10.007 0-2.673-1.042-5.186-2.935-7.078C17.13 1.69 14.613.65 11.941.65c-5.522 0-10.014 4.491-10.014 10.011 0 2.106.56 4.156 1.625 5.997L2.18 21.84l5.313-1.393z" />
+            </svg>
+        </button>
+
+        <div id="chat-card" style="display: none; position: absolute; bottom: 75px; right: 0; width: 320px; background: white; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.15); overflow: hidden; text-align: left;">
+            <div style="background-color: #1b4d3e; color: white; padding: 16px;">
+                <div style="font-weight: bold; font-size: 16px;">🌾 AgroBot Workspace</div>
+                <div style="font-size: 12px; opacity: 0.85; margin-top: 4px;">Automated Data Optimization Support</div>
+            </div>
+            <div style="padding: 20px; color: #4a5568; font-size: 14px; line-height: 1.5; background-color: #f7fafc;">
+                Hello! Looking to deploy automated optimizations or work through engineering scripts? Connect directly to our active engine on WhatsApp to begin.
+            </div>
+            <div style="padding: 0 20px 20px 20px; background-color: #f7fafc;">
+                <a href="https://wa.me/919342797296?text=Hi%20AgroBot!%20I%20want%20to%20initialize%20system%20optimization%20inquiries." target="_blank" style="background-color: #25D366; color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    Start Chat Window
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleChatCard() {
+            var card = document.getElementById("chat-card");
+            card.style.display = (card.style.display === "block") ? "none" : "block";
+        }
+    </script>
+   </html>

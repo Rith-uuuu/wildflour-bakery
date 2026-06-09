@@ -52,7 +52,7 @@
     .badges{display:flex;flex-wrap:wrap;gap:.8rem 1.6rem;margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.18);font-size:.92rem;color:#e6d4bf}
     .badges .it{display:flex;align-items:center;gap:.5rem}.badges strong{color:#fff}.stars{color:var(--mustard)}
     
-    /* Tartine Bakery Scarcity Mechanics & Marquee */
+    /* Scarcity Mechanics & Marquee */
     .live-ticker-banner { background:var(--mustard); color:var(--brown-900); font-size:0.8rem; font-weight:700; padding:0.4rem 1rem; text-align:center; overflow:hidden; white-space:nowrap; position:relative; z-index:110; border-bottom:1px solid rgba(0,0,0,0.1); }
     .ticker-wrap { display:inline-block; animation:marquee 25s linear infinite; }
     @keyframes marquee { 0% { transform:translate3d(0, 0, 0); } 100% { transform:translate3d(-50%, 0, 0); } }
@@ -86,7 +86,7 @@
     .scarcity-ticker.low { color:var(--danger); background:rgba(179,64,47,0.1); }
     .scarcity-ticker.fresh { color:var(--success); background:rgba(63,125,82,0.1); }
     
-    /* Tartine Style Sold Out UI Guard */
+    /* Sold Out UI Guard */
     .card-option.sold-out { opacity:0.5; cursor:not-allowed; background:var(--cream); }
     .card-option.sold-out .card-title { text-decoration:line-through; color:var(--mut); }
     .card-option.sold-out .card-img { filter:grayscale(1); }
@@ -103,7 +103,7 @@
     .pill-label input[type="radio"]:checked + .pill-btn { background:var(--brown-900); color:#fff; border-color:var(--brown-900); }
     .pill-label input[type="radio"]:checked + .pill-btn span { color:rgba(255,255,255,0.7); }
 
-    /* Live Batch Freshness Tracker Blueprint */
+    /* Live Batch Freshness Tracker */
     .freshness-tracker { background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:0.75rem; margin-bottom:1rem; }
     .fresh-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; }
     .fresh-bar { height:6px; background:var(--line); border-radius:3px; position:relative; overflow:hidden; }
@@ -118,7 +118,7 @@
     .upgrade-check input { accent-color:var(--terra-600); width:16px; height:16px; margin:0; }
     .upgrade-price { font-weight:700; color:var(--terra-600); }
 
-    /* Dominique Ansel Floating Interactive Workshop Module */
+    /* Floating Interactive Workshop Module */
     .floating-workshop-dock { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:rgba(58, 36, 24, 0.96); backdrop-filter:blur(12px); border-radius:30px; padding:10px 24px; display:flex; align-items:center; gap:20px; box-shadow:0 20px 50px rgba(0,0,0,0.3); z-index:2000; border:1px solid rgba(233,221,202,0.15); width:calc(100% - 40px); max-width:680px; justify-content:space-between; transition:all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     .dock-title { color:var(--mustard); font-family:var(--font-display); font-size:1rem; white-space:nowrap; }
     .dock-items-cluster { display:flex; gap:12px; overflow-x:auto; scrollbar-width:none; padding-block:4px; }
@@ -193,7 +193,6 @@
   img.ufill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;border:0}
   .ph,.ph2,.half,.photo,.gimg{position:relative;overflow:hidden}
   
-  /* FIXED: Inserted high quality online bakery imagery link */
   .hero{background-image:linear-gradient(180deg,rgba(11,13,18,.60),rgba(11,13,18,.74)),url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop')!important;background-size:cover!important;background-position:center!important}
   
   .brand .mark svg{width:22px;height:22px;display:block}
@@ -505,7 +504,6 @@
   </footer>
 
   <script>
-    // System Data & Architecture Initialization
     const VAULT_DATA = [
       {
         id: 'pastry',
@@ -522,7 +520,7 @@
         id: 'bread',
         title: 'Fresh Sourdough Loaf',
         desc: 'Our high-hydration house flagship loaf made of ancient grain varietals stone-milled under strict temperature monitors.',
-        img: 'https://images.unsplash.com/photo-1176913888382-5724473b246a?w=400&h=300&fit=crop',
+        img: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop',
         layers: [
           { name: 'Layer 1: Blistered Crust', detail: 'Thick caramelized exterior displaying aggressive blistering from intense stone-fired wood ovens.' },
           { name: 'Layer 2: Wild Sourdough Webbing', detail: 'Irregular open crumb lattice showing deep acetic and lactic acid fermentation pathways.' },
@@ -544,7 +542,6 @@
 
     let currentSelectedPastryIndex = 0;
 
-    // Navigation Menu Toggle Logic
     (function(){
       var b=document.getElementById('navToggle'), n=document.getElementById('nav');
       if(b&&n){
@@ -565,7 +562,6 @@
     
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Floating Lab Elements Generator
     (function initWorkshopDock(){
       const cluster = document.getElementById('dockCluster');
       if(!cluster) return;
@@ -588,7 +584,6 @@
       });
     })();
 
-    // Modal Control Routines
     const overlay = document.getElementById('inspectOverlay');
     const bSlider = document.getElementById('blueprintSlider');
     const layerIndicator = document.getElementById('layerIndicator');
@@ -620,14 +615,12 @@
     const closeModal = () => overlay.classList.remove('open');
     document.getElementById('closeInspectBtn').onclick = closeModal;
     
-    // Accessibility: Close modal on Esc keypress
     window.addEventListener('keydown', function(e) {
       if(e.key === 'Escape' && overlay.classList.contains('open')) {
         closeModal();
       }
     });
     
-    // Wire modal selection back into form
     document.getElementById('modalSelectBtn').onclick = function() {
       const activePastry = VAULT_DATA[currentSelectedPastryIndex];
       const targetRadio = document.getElementById(`radio-${activePastry.id}`);
@@ -649,7 +642,6 @@
       document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
     };
 
-    // Live Toast Notification Loops
     const TOAST_MESSAGES = [
       { text: "Batch 3: Sourdough Croissants out of the oven.", ico: "🥐" },
       { text: "Case Alert: Only 2 Cinnamon Morning Buns remain.", ico: "⏳" },
@@ -672,14 +664,12 @@
     setTimeout(spawnNotificationToast, 3000);
     setInterval(spawnNotificationToast, 15000);
 
-    // HTML5 Real-Time Form Validation Engine (Restored from index5)
     (function initValidationSuite(){
       var f = document.getElementById('bookForm');
       if(!f) return;
       var s = document.getElementById('formStatus'), sb = document.getElementById('submitBtn');
       var calendarPillsContainer = document.getElementById('calendarPills');
 
-      // Generate Interactive Pills Dynamic Architecture
       const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       let pillsHtml = '';
       for (let i = 0; i < 4; i++) {
@@ -712,7 +702,6 @@
       document.getElementById('radio-pastry').onchange = () => setFormContext('retail');
       document.getElementById('radio-bread').onchange = () => setFormContext('retail');
 
-      // Restored Validation Utility Loops
       function validateInputNode(input) {
         var wrapper = input.closest('[data-field]');
         if (!wrapper || input.disabled || (input.offsetParent === null)) return true;

@@ -153,7 +153,19 @@
     @keyframes fadeOutToast { to { transform:translateX(130%); opacity:0; } }
     .toast-ico { font-size:1.2rem; }
 
-    /* Catering Layout Toggles */
+    /* Clean Bakery WhatsApp Widget Structure */
+    .bakery-whatsapp-container { position:fixed; bottom:90px; right:24px; z-index:2100; font-family:var(--font-body); }
+    .whatsapp-trigger-btn { background-color:#25D366; color:white; border:none; width:56px; height:56px; border-radius:50%; box-shadow:0 6px 16px rgba(0,0,0,0.2); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:transform 0.2s ease; outline:none; }
+    .whatsapp-trigger-btn:hover { transform:scale(1.05); }
+    .whatsapp-trigger-btn svg { width:28px; height:28px; fill:white; }
+    .whatsapp-chat-card { display:none; position:absolute; bottom:70px; right:0; width:310px; background:white; border-radius:14px; box-shadow:0 10px 35px rgba(58,36,24,0.2); overflow:hidden; border:1px solid var(--line); text-align:left; animation:slideUpCard 0.25s ease forwards; }
+    .whatsapp-card-header { background-color:var(--brown-900); color:white; padding:16px; position:relative; }
+    .whatsapp-card-header h4 { margin:0; font-size:15px; font-weight:600; color:var(--mustard); }
+    .whatsapp-card-header p { margin:3px 0 0; font-size:11px; opacity:0.8; color:#fff; }
+    .whatsapp-card-body { padding:16px; color:var(--ink); font-size:13.5px; line-height:1.45; background-color:var(--paper); }
+    .whatsapp-action-link { background-color:#25D366; color:white; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:8px; padding:11px; border-radius:8px; font-weight:700; font-size:13.5px; text-align:center; box-shadow:0 2px 6px rgba(37,211,102,0.25); transition:background-color 0.15s; }
+    .whatsapp-action-link:hover { background-color:#20ba59; }
+
     #bookForm[data-context="catering"] .retail-only { display:none !important; }
     #bookForm:not([data-context="catering"]) .catering-only { display:none !important; }
     #bookForm[data-context="catering"] { border-top-color:var(--mustard); }
@@ -246,6 +258,26 @@
         </div>
 
         <button class="btn btn-terra btn-block" id="modalSelectBtn">Select This Creation</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bakery-whatsapp-container">
+    <button onclick="toggleBakeryWhatsApp()" class="whatsapp-trigger-btn" aria-label="Open chat support window">
+      <svg viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.948 0c3.179.001 6.165 1.24 8.413 3.488 2.248 2.248 3.484 5.236 3.484 8.414 0 6.597-5.336 11.948-11.888 11.948-2.006-.001-3.98-.51-5.731-1.484L0 24zm6.59-4.846c1.657.983 3.284 1.514 5.302 1.515 5.517 0 10.007-4.49 10.007-10.007 0-2.673-1.042-5.186-2.935-7.078C17.13 1.69 14.613.65 11.941.65c-5.522 0-10.014 4.491-10.014 10.011 0 2.106.56 4.156 1.625 5.997L2.18 21.84l5.313-1.393z" />
+      </svg>
+    </button>
+    <div id="bakeryWhatsAppCard" class="whatsapp-chat-card">
+      <div class="whatsapp-card-header">
+        <h4>🥖 Wildflour Chat Box</h4>
+        <p>Typically replies in a few minutes</p>
+      </div>
+      <div class="whatsapp-card-body">
+        <p style="margin: 0 0 14px 0;">Hi there! Need assistance with custom pastry customisations, large orders, or menu item allocation updates? Connect straight to our team.</p>
+        <a href="https://wa.me/18285550176?text=Hi%20Wildflour!%20I%20have%20a%20question%20about%20your%20bakery%20menu%20or%20an%20order." target="_blank" class="whatsapp-action-link">
+          Start WhatsApp Chat
+        </a>
       </div>
     </div>
   </div>
@@ -542,6 +574,14 @@
 
     let currentSelectedPastryIndex = 0;
 
+    // Toggle Function for the Custom Bakery WhatsApp Card
+    function toggleBakeryWhatsApp() {
+      const card = document.getElementById("bakeryWhatsAppCard");
+      if (card) {
+        card.style.display = (card.style.display === "block") ? "none" : "block";
+      }
+    }
+
     (function(){
       var b=document.getElementById('navToggle'), n=document.getElementById('nav');
       if(b&&n){
@@ -680,75 +720,3 @@
         pillsHtml += `
           <label class="pill-label">
             <input type="radio" name="day_pill" value="${titleLabel}" ${i===0?'checked':''} />
-            <span class="pill-btn">${titleLabel}<span>${dateString}</span></span>
-          </label>`;
-      }
-      if(calendarPillsContainer) calendarPillsContainer.innerHTML = pillsHtml;
-
-      function setFormContext(mode) {
-        if (mode === 'catering') {
-          f.setAttribute('data-context', 'catering');
-          document.getElementById('formTitle').textContent = "Inquire About Catering";
-          sb.textContent = "Submit Catering Request";
-        } else {
-          f.removeAttribute('data-context');
-          document.getElementById('formTitle').textContent = "Order ahead";
-          sb.textContent = "Place Pickup Order";
-        }
-      }
-
-      document.getElementById('caterTriggerBtn').onclick = () => { setFormContext('catering'); document.getElementById('order').scrollIntoView({ behavior: 'smooth' }); };
-      document.getElementById('radio-custom').onchange = () => setFormContext('catering');
-      document.getElementById('radio-pastry').onchange = () => setFormContext('retail');
-      document.getElementById('radio-bread').onchange = () => setFormContext('retail');
-
-      function validateInputNode(input) {
-        var wrapper = input.closest('[data-field]');
-        if (!wrapper || input.disabled || (input.offsetParent === null)) return true;
-        
-        var isValid = input.checkValidity() && input.value.trim() !== '';
-        wrapper.setAttribute('data-invalid', isValid ? 'false' : 'true');
-        input.setAttribute('aria-invalid', isValid ? 'false' : 'true');
-        return isValid;
-      }
-
-      f.querySelectorAll('[data-field] input').forEach(function(input) {
-        input.addEventListener('blur', function() { validateInputNode(input); });
-        input.addEventListener('input', function() { if(wrapper = input.closest('[data-field]')) wrapper.removeAttribute('data-invalid'); });
-      });
-
-      f.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var baselinePass = true;
-        var firstErrorNode = null;
-
-        f.querySelectorAll('[data-field] input').forEach(function(input) {
-          if (!validateInputNode(input)) {
-            baselinePass = false;
-            if (!firstErrorNode) firstErrorNode = input;
-          }
-        });
-
-        if (!baselinePass) {
-          s.textContent = 'Please update the highlighted options before continuing.';
-          s.removeAttribute('data-state');
-          if (firstErrorNode) firstErrorNode.focus();
-          return;
-        }
-
-        sb.disabled = true;
-        sb.textContent = 'Securing Allocation…';
-        
-        setTimeout(() => {
-          f.reset();
-          sb.disabled = false;
-          sb.textContent = f.getAttribute('data-context') === 'catering' ? 'Submit Catering Request' : 'Place Pickup Order';
-          s.setAttribute('data-state', 'ok');
-          s.textContent = 'Reservation locked. Check your device for confirmations.';
-          setTimeout(() => { s.textContent = ''; s.removeAttribute('data-state'); }, 6000);
-        }, 900);
-      });
-    })();
-  </script>
-</body>
-</html>
